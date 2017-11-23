@@ -15,9 +15,9 @@ from keras.layers import Input
 import pickle
 from keras.models import load_model
 
-train = pd.read_csv('train.txt', sep=' ', header=None)
+train = pd.read_csv('train.txt', sep=' ',encoding='gb2312')
 train.columns = ['path', 'label']
-val = pd.read_csv('val.txt', sep=' ', header=None)
+val = pd.read_csv('val.txt', sep=' ',encoding='gb2312')
 val.columns = ['path', 'label']
 
 train_number = len(train)
