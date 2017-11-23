@@ -68,7 +68,7 @@ for layer in base_model.layers:
 # compile the model (should be done *after* setting layers to non-trainable)
 model.compile(optimizer='rmsprop',loss='categorical_crossentropy',metrics=['accuracy'])
 model.fit(x_train, y_train, batch_size=64, nb_epoch=20, validation_split=0.2)
-#preds = model.predict(X_val)
+#preds = model.predict(x_val)
 
 model.save('my_model.h5') 
 #pickle.dump(model, open(saveFiles, 'wb'))
