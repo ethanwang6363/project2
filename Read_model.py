@@ -15,22 +15,19 @@ from keras.layers import Input
 import pickle
 from keras.models import load_model
 
-test = pd.read_csv('test.txt',header=None, sep=' ',encoding='gb2312')
+test = pd.read_csv('test.txt', sep=' ')
 test.columns = ['path']
 
 img_matrix = imread(test.iloc[0, :].path)
 
-height, width, depth = imresize(img_matrix, (224, 224)).shape
-
 test_number = len(test)
-
 
 for i in range(test_number):
     img_matrix = imread(test.iloc[i, :].path)
     img = imresize(img_matrix, (224, 224))
     x_test = (i,img)
     
-
+    
 model = load_model('my_model.h5')
 preds = model.predict(x_test)
 
